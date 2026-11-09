@@ -1,0 +1,177 @@
+:root {
+    --papel: #f4efe6;
+    --cartao: #fffdf8;
+    --tinta: #1f1b16;
+    --tinta-suave: #6b6257;
+    --linha: #ddd3c4;
+    --verde: #2f5d50;
+    --verde-escuro: #234840;
+    --tijolo: #a8432f;
+    --destaque: #efe6d4;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: "IBM Plex Sans", Arial, sans-serif;
+    background: var(--papel);
+    color: var(--tinta);
+    padding: 40px 20px;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--cartao);
+    border: 1px solid var(--linha);
+    padding: 36px 40px;
+}
+
+h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 700;
+    font-size: 34px;
+    letter-spacing: -0.5px;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--tinta);
+}
+
+form {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+
+form .form-group:nth-child(n+4), form button { grid-column: 1 / 4; }
+
+label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--tinta-suave);
+}
+
+input {
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px 12px;
+    height: 44px;
+    width: 100%;
+    background: var(--papel);
+    border: 1px solid var(--linha);
+    border-radius: 2px;
+    color: var(--tinta);
+}
+
+input:focus { outline: none; border-color: var(--verde); background: var(--cartao); }
+
+button {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px 16px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background .15s;
+}
+
+.btn-primary { background: var(--verde); color: var(--cartao); width: 100%; padding: 12px 24px; }
+.btn-primary:hover { background: var(--verde-escuro); }
+
+.btn-danger { background: transparent; color: var(--tijolo); border-color: var(--tijolo); }
+.btn-danger:hover { background: var(--tijolo); color: var(--cartao); }
+
+.resumo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    margin-bottom: 18px;
+    border-top: 1px solid var(--linha);
+    border-bottom: 1px solid var(--linha);
+}
+
+#total-estoque {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.busca-group { margin-bottom: 14px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+
+th {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--tinta-suave);
+    padding: 10px 8px;
+    border-bottom: 2px solid var(--tinta);
+}
+
+td { padding: 12px 8px; border-bottom: 1px solid var(--linha); text-align: left; }
+
+td:nth-child(2), td:nth-child(3), td:nth-child(4) { font-family: "IBM Plex Mono", monospace; font-size: 14px; }
+
+tbody tr:hover { background: var(--destaque); }
+
+.btn-editar, .btn-remover {
+    padding: 5px 10px;
+    font-size: 12px;
+    background: transparent;
+    border-color: var(--linha);
+    color: var(--tinta);
+}
+.btn-editar { margin-right: 4px; }
+.btn-editar:hover { border-color: var(--verde); color: var(--verde); }
+.btn-remover:hover { border-color: var(--tijolo); color: var(--tijolo); }
+
+.sem-resultados { text-align: center; color: var(--tinta-suave); font-style: italic; padding: 24px; }
+
+.titulo-autores {
+    max-width: 760px;
+    margin: 60px auto 0;
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    color: var(--tinta-suave);
+}
+
+.autores {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 48px;
+    margin: 20px auto 20px;
+}
+
+.autor { text-align: center; }
+
+.autor img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--cartao);
+    box-shadow: 0 0 0 1px var(--linha);
+}
+
+.autor p { margin-top: 10px; font-weight: 500; font-size: 15px; max-width: 180px; }
+
+@media (max-width: 600px) {
+    .container { padding: 24px 18px; }
+    form { grid-template-columns: 1fr; }
+    form .form-group, form button { grid-column: 1 / -1; }
+    table { font-size: 13px; }
+}
